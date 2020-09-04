@@ -1,0 +1,53 @@
+#login {
+  width: 30vw;
+  height: 70vh;
+  margin-top: 15vh;
+  margin-left: auto;
+  background-color: rgb(149, 73, 172);
+  border-radius: 30px;
+}
+#login p {
+  margin: 0px;
+  font-size: 14px;
+  color: #657786;
+}
+#login img {
+  width: 100px;
+  display: block;
+  margin: 70px auto;
+}
+#login #user {
+  background-color: #e6ecf0;
+  border-radius: 0px;
+  padding: 0px 5px;
+  margin: 10px 0px;
+}
+#login #user input {
+  border: none;
+  background: transparent;
+  padding-left: 0px;
+  width: 100%;
+}
+#login #user input:focus {
+  outline: none;
+  border: 0px;
+}
+#login button {
+  display: block;
+  margin: 20px auto;
+  height: 40px;
+  border-radius: 30px;
+  width: 80px;
+  border: 0px;
+  font-weight: 600;
+}
+#login #registerRoute {
+  color: white !important;
+  text-align: center;
+}
+#login #registerRoute a {
+  color: #45d2e7 !important;
+}
+#login #registerRoute a:hover {
+  text-decoration: none;
+}
