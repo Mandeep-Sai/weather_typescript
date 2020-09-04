@@ -4,12 +4,14 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Results from "../components/Results";
 import Row from "react-bootstrap/Row";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiStar } from "react-icons/fi";
 import { useHistory } from "react-router";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 function SearchComp() {
   const [query, setQuery] = useState("");
+  const [favs, setFavs] = useState("");
   const history = useHistory();
   const [result, setResult] = useState({
     coord: {
@@ -72,6 +74,25 @@ function SearchComp() {
       console.log(error);
     }
   };
+  const addToFavourites = async () => {
+    let payload = {
+      place: result.name,
+    };
+
+    let response = await fetch("http://localhost:3002/users/addToFavs", {
+      headers: new Headers({
+        "Access-Control-Allow-Origin": "http://localhost:3002",
+        "Access-Control-Allow-Credentials": "true",
+        "Content-Type": "application/json",
+      }),
+      credentials: "include",
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      alert("added successfully");
+    }
+  };
   return (
     <>
       <div className="circle-bg"></div>
@@ -90,6 +111,13 @@ function SearchComp() {
               <FiSearch />
             </p>
           </Button>
+          {result.weather[0].id !== 0 && (
+            <Button id="favButton" onClick={addToFavourites}>
+              <p>
+                <FiStar />
+              </p>
+            </Button>
+          )}
         </Form>
       </div>
       {result && <Results data={result} />}
