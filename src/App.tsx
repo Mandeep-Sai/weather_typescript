@@ -13,8 +13,8 @@ function App() {
     <Router>
       <div className="App">
         <Container style={{ width: "100%", height: "100%" }}>
-          <Route path="/" exact component={Login} />
-          <Route path="/home" component={SearchComp} />
+         
+          <Route path="/" component={SearchComp} />
         </Container>
       </div>
     </Router>
